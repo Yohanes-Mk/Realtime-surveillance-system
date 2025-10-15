@@ -32,16 +32,16 @@ Now, while continuing my work at **Allied Universal**, I’m refining this proje
 
 ## 🧠 System Architecture  
 
-### High-Level Flow
 ```mermaid
 flowchart LR
-    CAM[Camera Feed] --> DET[Detection (OpenCV/YOLO)]
-    DET --> POSE[Posture Estimation (MediaPipe)]
-    POSE --> TRACK[Tracking (Centroid Tracker)]
-    TRACK --> ALERT[Flask Alerts API]
-    TRACK --> LOGS[SQLite / CSV Logs]
-    ALERT --> UI[Streamlit Visualization Dashboard]
+    CAM["Camera Feed"] --> DET["Detection: OpenCV + YOLO"]
+    DET --> POSE["Posture Estimation: MediaPipe"]
+    POSE --> TRACK["Tracking: Centroid Tracker"]
+    TRACK --> ALERT["Flask Alerts API"]
+    TRACK --> LOGS["SQLite / CSV Logs"]
+    ALERT --> UI["Streamlit Visualization Dashboard"]
     LOGS --> UI
+
 ```
 
 ### Architecture Summary  
