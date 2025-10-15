@@ -17,9 +17,20 @@
 ## 3. System Architecture (to be expanded)
 High-level flow:
 
-Camera Feed → Detection (OpenCV) → Posture Estimation (Mediapipe)
-→ Tracking (Centroid Tracker) → Alerts (Flask API)
-→ Visualization (Streamlit Dashboard)
+```mermaid
+
+flowchart LR
+    subgraph Inference Pipeline
+      CAM[Camera Feed] --> DET[OpenCV/YOLO]
+      DET --> POSE[MediaPipe]
+      POSE --> TRACK[Centroid Tracker]
+    end
+    TRACK -->|events| ALERT[Flask Alerts]
+    TRACK -->|metrics| LOGS[SQLite/CSV]
+    ALERT --> UI[Streamlit UI]
+    LOGS --> UI
+
+```
 
 
 ## 4. Planned Improvements
